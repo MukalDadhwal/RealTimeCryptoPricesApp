@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:palette_generator/palette_generator.dart';
+import 'package:dio/dio.dart';
+// import 'package:palette_generator/palette_generator.dart';
+import '../keys.dart';
 
 class CryptoModel {
   final List<Data> data;
@@ -16,6 +18,11 @@ class CryptoModel {
     return CryptoModel(
       data: data ?? this.data,
     );
+  }
+
+  // custom function to add more items
+  void addItems(List<Data> list) {
+    data.addAll(list);
   }
 
   Map<String, dynamic> toMap() {
